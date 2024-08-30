@@ -7,6 +7,7 @@ function App() {
       <header>
         <h1>Nicholas Arsenault</h1>
         <p><i>Computer Science Grad and Full Stack Developer</i></p>
+        <img src="/images/your-photo.jpg" alt="Your Name" />
       </header>
 
       <section id="about">
@@ -19,7 +20,6 @@ function App() {
 
           Below you'll find projects of mine, social links, and a bit more about my experience. Feel free 
           to contact me with any questions or job opportunities, and thanks for checking out my page!
-          
         </p>
       </section>
 
@@ -36,22 +36,55 @@ function App() {
             <p>A fun app that helps users with task Z, built with A, B, and C.</p>
             <a href="https://github.com/your-username/project-two">View on GitHub</a>
           </div>
-          {/* Add more project cards */}
         </div>
       </section>
 
-      <section id="social-links">
-        <h2>Social Links</h2>
-        <ul>
-          <li><a href="https://github.com/your-username">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/your-username">LinkedIn</a></li>
-        </ul>
+      <section id="work-experience">
+        <h2>Work Experience</h2>
+        <div className="experience-list">
+          <div className="experience-card">
+            <h3>Job Title at Company</h3>
+            <p>Duration: Start Date - End Date</p>
+            <p>Brief description of your role and responsibilities.</p>
+          </div>
+          <div className="experience-card">
+            <h3>Another Job Title at Another Company</h3>
+            <p>Duration: Start Date - End Date</p>
+            <p>Brief description of your role and responsibilities.</p>
+          </div>
+        </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <div className="certification-list">
+          <div className="certification-card">
+            <h3>Certification Name</h3>
+            <p>Issuing Organization - Year</p>
+          </div>
+          <div className="certification-card">
+            <h3>Another Certification</h3>
+            <p>Issuing Organization - Year</p>
+          </div>
+        </div>
       </section>
+
+      <footer id="footer">
+        <div id="resume">
+          <a href="/resume.pdf" className="resume-button" download>Download My Resume</a>
+        </div>
+        <div id="social-links" className="social-links">
+          <a href="https://github.com/your-username">
+            <img src="/images/github-icon.png" alt="GitHub" />
+          </a>
+          <a href="https://linkedin.com/in/your-username">
+            <img src="/images/linkedin-icon.png" alt="LinkedIn" />
+          </a>
+        </div>
+        <div id="contact">
+          <p className="contact-info">Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        </div>
+      </footer>
     </div>
   );
 }

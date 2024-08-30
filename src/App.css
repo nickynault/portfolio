@@ -5,6 +5,15 @@ body {
   color: #ffffff;
 }
 
+#about img {
+  border-radius: 50%;
+  width: 150px;
+  /* Adjust size as needed */
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
 header {
   text-align: center;
   padding: 50px 0;
@@ -26,14 +35,19 @@ section {
   padding: 50px;
 }
 
-#projects {
+#projects,
+#work-experience,
+#certifications {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
 }
 
-.project-card {
+.project-card,
+.experience-card,
+.certification-card {
   background: #333;
   padding: 20px;
   margin: 20px 0;
@@ -42,7 +56,9 @@ section {
   transition: transform 0.3s ease;
 }
 
-.project-card:hover {
+.project-card:hover,
+.experience-card:hover,
+.certification-card:hover {
   transform: translateY(-10px);
 }
 
@@ -54,6 +70,57 @@ a {
 
 a:hover {
   color: #ff66cc;
+}
+
+.social-links img {
+  width: 50px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+#resume,
+#social-links,
+#contact {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#footer>div {
+  margin: 0 10px;
+}
+
+#footer .social-links img {
+  width: 40px;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00ffcc;
+  color: #1a1a1d;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #ff66cc;
 }
 
 @keyframes fadeIn {
@@ -68,18 +135,27 @@ a:hover {
   }
 }
 
-.project-card {
+.project-card,
+.experience-card,
+.certification-card {
   animation: fadeIn 1s ease-in-out;
 }
 
-.project-card:nth-child(1) {
+/* Subtle animation delays */
+.project-card:nth-child(1),
+.experience-card:nth-child(1),
+.certification-card:nth-child(1) {
   animation-delay: 0.3s;
 }
 
-.project-card:nth-child(2) {
+.project-card:nth-child(2),
+.experience-card:nth-child(2),
+.certification-card:nth-child(2) {
   animation-delay: 0.6s;
 }
 
-.project-card:nth-child(3) {
+.project-card:nth-child(3),
+.experience-card:nth-child(3),
+.certification-card:nth-child(3) {
   animation-delay: 0.9s;
 }
