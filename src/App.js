@@ -1,26 +1,33 @@
 import React from 'react';
 import './App.css';
+import GithubLogo from './photos/Github-Logo-PNG.png';
+import LinkedinLogo from './photos/LinkedinLogo.png';
+import Me from './photos/me-small.jpg'
+
 
 function App() {
   return (
     <div className="App">
       <header>
-        <h1>Nicholas Arsenault</h1>
-        <p><i>Computer Science Grad and Full Stack Developer</i></p>
-        <img src="/images/your-photo.jpg" alt="Your Name" />
+        <h1 className="centered-header">Nicholas Arsenault</h1>
+        <p className="centered-header"><i>Computer Science Grad and Full Stack Developer</i></p>
       </header>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>Hey there! I'm a recent graduate from Wayne State University as of August 2023 with a 
-          Bachelor's degree in Computer Science and a Minor in Design. I've been coding since my sophomore
-          year, and making projects in school and some on my own since then. I'm very interested in
-          Python, React, AWS, and making games in Unreal and Godot. I'm still actively learning, but
-          I've already come pretty far! <br></br><br></br>
 
-          Below you'll find projects of mine, social links, and a bit more about my experience. Feel free 
-          to contact me with any questions or job opportunities, and thanks for checking out my page!
-        </p>
+      <section id="about">
+        <div className='about-me-content'>
+        <h2>About Me</h2>
+          <p>Hey there! I'm a recent graduate from Wayne State University as of August 2023 with a 
+            Bachelor's degree in Computer Science and a Minor in Design. I've been coding since my sophomore
+            year, and making projects in school and some on my own since then. I'm very interested in
+            Python, React, AWS, and making games in Unreal and Godot. I'm still actively learning, but
+            I've already come pretty far! <br></br><br></br>
+
+            Below you'll find projects of mine, social links, and a bit more about my experience. Feel free 
+            to contact me with any questions or job opportunities, and thanks for checking out my page!
+          </p>
+          <img src={Me} alt="Me!" className="profile-image" />
+        </div>
       </section>
 
       <section id="projects">
@@ -71,18 +78,18 @@ function App() {
 
       <footer id="footer">
         <div id="resume">
-          <a href="/resume.pdf" className="resume-button" download>Download My Resume</a>
+          <a href="/resume.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
         </div>
         <div id="social-links" className="social-links">
-          <a href="https://github.com/your-username">
-            <img src="/images/github-icon.png" alt="GitHub" />
+          <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
+            <img src={GithubLogo} alt="GitHub" style={{ width: '67px', height: '67px' }} />
           </a>
-          <a href="https://linkedin.com/in/your-username">
-            <img src="/images/linkedin-icon.png" alt="LinkedIn" />
+          <a href="https://www.linkedin.com/in/nicholas-arsenault-544802233" target="_blank" rel="noopener noreferrer">
+            <img src={LinkedinLogo} alt="LinkedIn" style={{ width: '67px', height: '67px' }} />
           </a>
         </div>
         <div id="contact">
-          <p className="contact-info">Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+          <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
         </div>
       </footer>
     </div>

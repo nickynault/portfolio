@@ -8,7 +8,6 @@ body {
 #about img {
   border-radius: 50%;
   width: 150px;
-  /* Adjust size as needed */
   height: 150px;
   object-fit: cover;
   margin-bottom: 20px;
@@ -22,6 +21,14 @@ header {
 h1 {
   font-size: 3em;
   margin: 0;
+  color: #00ffcc;
+}
+
+h2 {
+  color:#00ffcc;
+}
+
+h3 {
   color: #00ffcc;
 }
 
@@ -158,4 +165,43 @@ a:hover {
 .experience-card:nth-child(3),
 .certification-card:nth-child(3) {
   animation-delay: 0.9s;
+}
+
+.centered-header {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#about {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.about-me-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #f0f0f018;
+  border-radius: 10px;
+}
+
+.about-me-content p {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about-me-content p {
+  margin-left: 30px;
+  margin-top: 0;
 }
