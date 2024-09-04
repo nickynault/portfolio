@@ -30,34 +30,35 @@ function App() {
         </div>
       </section>
 
+      <section className="school-section">
+        <div className="school-content">
+          <h2>Education</h2>
+          <ul>
+            <li><strong>Bachelor of Science in Computer Science</strong> – Wayne State University, Graduated: August 2023</li>
+            <li>Key courses: Data Structures, Algorithms, Web Development, C++, Java, Software Engineering, etc.</li>
+            <a href="https://wayne.edu/" target="_blank" rel="noopener noreferrer">Check out WSU!!!</a>
+          </ul>
+        </div>
+      </section>
+
       <section id="projects">
         <h2>Projects</h2>
         <div className="project-list">
           <div className="project-card">
-            <h3>Project One</h3>
-            <p>An innovative project that solves problem X using technology Y.</p>
-            <a href="https://github.com/your-username/project-one">View on GitHub</a>
+            <h3>Password Generator</h3>
+            <p>A simple, easy to use password generator that saves each new password for you. No online connection,
+              issues with data leaks, and you can even change how tough your password is. This was a very useful and basic project
+              I did to test my GUI and practical use coding skills.
+            </p>
+            <a href="https://github.com/nickynault/Password-Generator" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           </div>
           <div className="project-card">
-            <h3>Project Two</h3>
-            <p>A fun app that helps users with task Z, built with A, B, and C.</p>
-            <a href="https://github.com/your-username/project-two">View on GitHub</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="work-experience">
-        <h2>Work Experience</h2>
-        <div className="experience-list">
-          <div className="experience-card">
-            <h3>Job Title at Company</h3>
-            <p>Duration: Start Date - End Date</p>
-            <p>Brief description of your role and responsibilities.</p>
-          </div>
-          <div className="experience-card">
-            <h3>Another Job Title at Another Company</h3>
-            <p>Duration: Start Date - End Date</p>
-            <p>Brief description of your role and responsibilities.</p>
+            <h3>PDF Converter</h3>
+            <p>A simple to use PDF Converter that was just much more convenient for me than searching one up every time I need
+              a quick conversion. It also includes other conversion types that are common or that I use sometimes.
+              This is currently a work in progress as of 9/4/2024. Patience!
+            </p>
+            <a href="https://github.com/your-username/PDF-Converter" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           </div>
         </div>
       </section>
@@ -66,19 +67,45 @@ function App() {
         <h2>Certifications</h2>
         <div className="certification-list">
           <div className="certification-card">
-            <h3>Certification Name</h3>
-            <p>Issuing Organization - Year</p>
+            <h3>Unreal Engine 5 Course</h3>
+            <p>Udemy - October 2023</p>
           </div>
           <div className="certification-card">
-            <h3>Another Certification</h3>
-            <p>Issuing Organization - Year</p>
+            <h3>Python 3, Linux and C++ Courses</h3>
+            <p>Codecademy - 2021 through 2023</p>
+          </div>
+          <div className="certification-card">
+            <h3>CISSO: Certified Information Systems Security Officer</h3>
+            <p>Mile2 - April 2023</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="work-experience">
+        <h2>Work Experience</h2>
+        <div className="experience-list">
+          <div className="experience-card">
+            <h3>Warehouse Associate at Camfil</h3>
+            <p>Started August 2023, Currently Employed</p>
+            <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure timely 
+              completion of custom orders and deliveries, including will calls, shipments, and Camfil truck deliveries. 
+              These efforts contributed to getting better release times on orders, which gets customers
+              what they paid for earlier, makes our job easier, and gets us a better bonus around the Winter holidays.</p>
+            <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer">Camfil's Site</a>
+          </div>
+          <div className="experience-card">
+            <h3>Another Job Title at Another Company</h3>
+            <p>Started May 2023, Left November 2023</p>
+            <p>At Ace, I would assemble grills to be shipped or delivered to customers and/or stores. 
+              This sped up the process of order filling, and helped local Ace stores stock up and show off their grills to paying customers.</p>
+            <a href="https://www.greatlakesace.com/" target="_blank" rel="noopener noreferrer">Ace's Site</a>
           </div>
         </div>
       </section>
 
       <footer id="footer">
         <div id="resume">
-          <a href="/resume.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
+          <a href="/Arsenault Resume 2024.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
         </div>
         <div id="social-links" className="social-links">
           <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">

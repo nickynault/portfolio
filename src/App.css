@@ -42,6 +42,31 @@ section {
   padding: 50px;
 }
 
+.school-section {
+  display: flex;
+  justify-content: center;
+  margin: -70px 0;
+}
+
+.school-content {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.school-content h2 {
+  font-size: 24px;
+}
+
+.school-content ul {
+  padding-left: 20px;
+}
+
+.school-content li {
+  margin-bottom: 10px;
+}
+
 #projects,
 #work-experience,
 #certifications {
