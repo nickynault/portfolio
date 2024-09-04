@@ -3,6 +3,7 @@ import './App.css';
 import GithubLogo from './photos/Github-Logo-PNG.png';
 import LinkedinLogo from './photos/LinkedinLogo.png';
 import Me from './photos/me-small.jpg'
+import Resume from './ArsenaultResume2024.pdf'
 
 
 function App() {
@@ -105,7 +106,7 @@ function App() {
 
       <footer id="footer">
         <div id="resume">
-          <a href="/Arsenault Resume 2024.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
+          <a href={Resume} className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
         </div>
         <div id="social-links" className="social-links">
           <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
@@ -117,6 +118,7 @@ function App() {
         </div>
         <div id="contact">
           <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
+          <p> Give me a call at (248)-943-6458 or send a text at any time! If I don't answer your call, please leave a message or text me!</p>
         </div>
       </footer>
     </div>
