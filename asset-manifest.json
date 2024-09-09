@@ -1,19 +1,18 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.fed1e4d5.css",
-    "main.js": "/portfolio/static/js/main.fdf98443.js",
+    "main.js": "/portfolio/static/js/main.bb6469b1.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/me-small.jpg": "/portfolio/static/media/me-small.73c5925d77e3efef95bd.jpg",
-    "static/media/ArsenaultResume2024.pdf": "/portfolio/static/media/ArsenaultResume2024.c3a3acc90a9b47f601b5.pdf",
-    "static/media/Github-Logo-PNG.png": "/portfolio/static/media/Github-Logo-PNG.8bee166cce70183467e5.png",
+    "static/media/ArsenaultResume2024.pdf": "/portfolio/static/media/ArsenaultResume2024.7931ae21e8129c2896e5.pdf",
     "static/media/LinkedinLogo.png": "/portfolio/static/media/LinkedinLogo.68ac41e1459436bfd38f.png",
     "index.html": "/portfolio/index.html",
     "main.fed1e4d5.css.map": "/portfolio/static/css/main.fed1e4d5.css.map",
-    "main.fdf98443.js.map": "/portfolio/static/js/main.fdf98443.js.map",
+    "main.bb6469b1.js.map": "/portfolio/static/js/main.bb6469b1.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fed1e4d5.css",
-    "static/js/main.fdf98443.js"
+    "static/js/main.bb6469b1.js"
   ]
 }
