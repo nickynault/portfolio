@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import GithubLogo from './photos/Github-Logo-PNG.png';
+import GithubLogo from './photos/github-logo.png';
 import LinkedinLogo from './photos/LinkedinLogo.png';
 import Me from './photos/me-small.jpg'
 import Resume from './ArsenaultResume2024.pdf'
@@ -14,17 +14,32 @@ function App() {
         <p className="centered-header"><i>Computer Science Grad and Full Stack Developer</i></p>
       </header>
 
+            <footer id="footer">
+        <div id="resume">
+          <a href={Resume} className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
+        </div>
+        <div id="social-links" className="social-links">
+          <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
+            <img src={GithubLogo} alt="GitHub" style={{ width: '67px', height: '67px' }} />
+          </a>
+          <a href="https://www.linkedin.com/in/nicholas-arsenault-544802233" target="_blank" rel="noopener noreferrer">
+            <img src={LinkedinLogo} alt="LinkedIn" style={{ width: '67px', height: '67px' }} />
+          </a>
+        </div>
+        <div id="contact">
+          <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
+        </div>
+      </footer>
 
       <section id="about">
         <div className='about-me-content'>
         <h2>About Me</h2>
-          <p>Hey there! I'm a recent graduate from Wayne State University as of August 2023 with a 
+          <p>I'm a recent graduate from Wayne State University as of August 2023 with a 
             Bachelor's degree in Computer Science and a Minor in Design. I've been coding since my sophomore
-            year, and making projects in school and some on my own since then. I'm very interested in
-            Python, React, AWS, and making games in Unreal and Godot. I'm still actively learning, but
-            I've already come pretty far! <br></br><br></br>
+            year of college, and making projects in and out of school ever since. I'm very interested in
+            Python, React, AWS, and working on games in Unreal Engine and Godot. <br></br><br></br>
 
-            Below you'll find projects of mine, social links, and a bit more about my experience. Feel free 
+            Below you'll find projects of mine, social links, and a bit more about my experiences. Feel free 
             to contact me with any questions or job opportunities, and thanks for checking out my page!
           </p>
           <img src={Me} alt="Me!" className="profile-image" />
@@ -47,17 +62,16 @@ function App() {
         <div className="project-list">
           <div className="project-card">
             <h3>Password Generator</h3>
-            <p>A simple, easy to use password generator that saves each new password for you. No online connection,
-              issues with data leaks, and you can even change how tough your password is. This was a very useful and basic project
-              I did to test my GUI and practical use coding skills.
+            <p>A simple, easy to use password generator that saves each new password automatically. No online connection or
+              issues with data leaks, and users can even change how secure the password is. 
             </p>
             <a href="https://github.com/nickynault/Password-Generator" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           </div>
           <div className="project-card">
             <h3>PDF Converter</h3>
-            <p>A simple to use PDF Converter that was just much more convenient for me than searching one up every time I need
-              a quick conversion. It also includes other conversion types that are common or that I use sometimes.
-              This is currently a work in progress as of 9/4/2024. Patience!
+            <p>A PDF Converter that was much more convenient for me than searching one up every time I need
+              a quick conversion. It also includes other conversion types that are common.
+              This is currently a work in progress as of 9/4/2024.
             </p>
             <a href="https://github.com/your-username/PDF-Converter" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           </div>
@@ -88,17 +102,21 @@ function App() {
           <div className="experience-card">
             <h3>Warehouse Associate at Camfil</h3>
             <p>Started August 2023, Currently Employed</p>
-            <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure timely 
-              completion of custom orders and deliveries, including will calls, shipments, and Camfil truck deliveries. 
-              These efforts contributed to getting better release times on orders, which gets customers
-              what they paid for earlier, makes our job easier, and gets us a better bonus around the Winter holidays.</p>
+            <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure 
+              timely completion of custom orders and deliveries, including will calls, shipments, 
+              and Camfil truck deliveries. My team and I, alongside the salesmen, directly affect how fast orders get out, 
+              which affects our business, and we’re doing very well profit-wise compared to the previous year. 
+              I’ve learned much about managing a team in a commercial setting, inventory management, organization, 
+              and dealing with somewhat stressful situations. </p>
             <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer">Camfil's Site</a>
           </div>
           <div className="experience-card">
             <h3>Another Job Title at Another Company</h3>
             <p>Started May 2023, Left November 2023</p>
             <p>At Ace, I would assemble grills to be shipped or delivered to customers and/or stores. 
-              This sped up the process of order filling, and helped local Ace stores stock up and show off their grills to paying customers.</p>
+              This sped up the process of order filling, and helped local Ace stores stock up and show off their grills to paying customers. 
+              I learned how to fix and assembles grills, which gives me a handy edge, 
+              and learned a bit about limits on parts, managing time efficiently, and respecting others.</p>
             <a href="https://www.greatlakesace.com/" target="_blank" rel="noopener noreferrer">Ace's Site</a>
           </div>
         </div>
@@ -118,7 +136,6 @@ function App() {
         </div>
         <div id="contact">
           <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
-          <p> Give me a call at (248)-943-6458 or send a text at any time! If I don't answer your call, please leave a message or text me!</p>
         </div>
       </footer>
     </div>
