@@ -19,111 +19,185 @@ function App() {
     <div className="App">
       <header>
         <h1 className="centered-header">Nicholas Arsenault</h1>
-        <p className="centered-header"><i>Computer Science Grad and Full Stack Developer</i></p>
+        <p className="centered-header"><i>Full Stack Developer & Game Developer</i></p>
+        <p className="centered-header subtitle">Available for Freelance Projects & Full-Time Opportunities</p>
+        <div className="header-contact">
+          <p>📧 nickarsenault18@gmail.com</p>
+          <div className="header-social">
+            <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
+              <img src={GithubLogo} alt="GitHub" />
+            </a>
+            <a href="https://www.linkedin.com/in/nicholas-arsenault-544802233" target="_blank" rel="noopener noreferrer">
+              <img src={LinkedinLogo} alt="LinkedIn" />
+            </a>
+          </div>
+        </div>
       </header>
-
-            <footer id="footer">
-        <div id="resume">
-          <a href={Resume} className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
-        </div>
-        <div id="social-links" className="social-links">
-          <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
-            <img src={GithubLogo} alt="GitHub" style={{ width: '67px', height: '67px' }} />
-          </a>
-          <a href="https://www.linkedin.com/in/nicholas-arsenault-544802233" target="_blank" rel="noopener noreferrer">
-            <img src={LinkedinLogo} alt="LinkedIn" style={{ width: '67px', height: '67px' }} />
-          </a>
-        </div>
-        <div id="contact">
-          <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
-        </div>
-      </footer>
 
       <section id="about">
         <div className='about-me-content'>
-        <h2>About Me</h2>
-          <p>I'm a recent graduate from Wayne State University as of August 2023 with a 
-            Bachelor's degree in Computer Science and a Minor in Design. I've been coding since my sophomore
-            year of college, and making projects in and out of school ever since. I'm very interested in
-            Python, React, ethical hacking/cybersecurity, and working on games in Unreal Engine and Godot. <br></br><br></br>
-
-            Below you'll find projects of mine, social links, and a bit more about my experiences. Feel free 
-            to contact me with any questions or job opportunities, and thanks for checking out my page!
-          </p>
-          <img src={Me} alt="Me!" className="profile-image" />
+          <div className="about-me-row-horizontal">
+            <div className="about-me-header-col">
+              <h2>About Me</h2>
+            </div>
+            <div className="about-me-text-col">
+              <p>Hi! I'm Nicholas, a passionate Computer Science graduate from Wayne State University with a 
+                strong foundation in both web development and game development. I love turning ideas into reality 
+                through code, whether that's building responsive websites, creating engaging games, or developing 
+                practical applications.<br /><br />
+                I'm currently seeking opportunities in software development, web development, or game development 
+                - whether that's freelance projects, part-time work, or full-time positions. I'm particularly 
+                experienced with <strong>React, Python, AWS, Unreal Engine, and Godot</strong>, and I'm always 
+                excited to learn new technologies.<br /><br />
+                When I'm not coding, you'll find me working on personal projects, learning new frameworks, 
+                or collaborating with other developers. I believe in writing clean, maintainable code and 
+                creating user experiences that people actually enjoy using.
+              </p>
+            </div>
+            <div className="about-me-image-col">
+              <img src={Me} alt="Nicholas Arsenault" className="profile-image" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="school-section">
-        <div className="school-content">
-          <h2>Education</h2>
-          <ul>
-            <li><strong>Bachelor of Science in Computer Science</strong> – Wayne State University, Graduated: August 2023</li>
-            <li>Key courses: Data Structures, Cybersecurity, Algorithms, Web Development, C++, Java, Software Engineering, etc.</li>
-            <a href="https://wayne.edu/" target="_blank" rel="noopener noreferrer">Check out WSU!!!</a>
-          </ul>
+      <section id="services">
+        <h2>Services I Offer</h2>
+        <div className="services-grid">
+          <div className="service-card">
+            <h3>🌐 Web Development</h3>
+            <p>Full-stack web applications, responsive websites, and modern web experiences using React, Node.js, and more.</p>
+          </div>
+          <div className="service-card">
+            <h3>🎮 Game Development</h3>
+            <p>2D and 3D games using Unreal Engine 5 and Godot. From concept to playable prototype.</p>
+          </div>
+          <div className="service-card">
+            <h3>📱 Application Development</h3>
+            <p>Desktop applications, utilities, and tools built with Python, C++, and other languages.</p>
+          </div>
+          <div className="service-card">
+            <h3>🎨 Portfolio & Business Sites</h3>
+            <p>Professional portfolios, business websites, and landing pages that make an impact.</p>
+          </div>
+        </div>
+        <div className="cta-section">
+          <p><strong>Interested in working together?</strong> I'm available for freelance projects, 
+          part-time positions, and full-time opportunities. Let's discuss how I can help bring your ideas to life!</p>
+        </div>
+      </section>
+
+      <section className="education-section">
+        <div className="education-content">
+          <h2>Education & Skills</h2>
+          <div className="education-skills">
+            <div className="education">
+              <h3>Education</h3>
+              <ul>
+                <li><strong>Bachelor of Science in Computer Science</strong> – Wayne State University, Graduated: August 2023</li>
+                <li>Minor in Design</li>
+                <li>Key courses: Data Structures, Algorithms, Web Development, C++, Java, Software Engineering</li>
+                <a href="https://wayne.edu/" target="_blank" rel="noopener noreferrer">Wayne State University</a>
+              </ul>
+            </div>
+            <div className="skills">
+              <h3>Technical Skills</h3>
+              <div className="skills-grid">
+                <div className="skill-category">
+                  <h4>Languages</h4>
+                  <p>Python, JavaScript, C++, Java, HTML/CSS</p>
+                </div>
+                <div className="skill-category">
+                  <h4>Frameworks & Tools</h4>
+                  <p>React, Node.js, AWS, Git, Linux</p>
+                </div>
+                <div className="skill-category">
+                  <h4>Game Development</h4>
+                  <p>Unreal Engine 5, Godot, Game Design</p>
+                </div>
+                <div className="skill-category">
+                  <h4>Other</h4>
+                  <p>REST APIs, Database Design, UI/UX Principles</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="projects">
-        <h2>Projects</h2>
-        <div className="project-list">
-          <div className="project-card">
-            <h3>Project Crypt</h3>
-            <p>A collaborative project with Jester Studios, Project Crypt is an early stage game using Godot 4. It will have
-              a roguelike AND a wave based survival mode. It will first be available on PC. 
-              This is currently a work in progress as of 10/17/2024.
-            </p>
-            <img src={GameMenu} alt="Project Crypt main menu" className={isEnlarged ? "enlarged-image" : "normal-image"} onClick={toggleSize} />
-          </div>
+        <h2>Featured Projects</h2>
+        <div className="project-list-centered">
           <div className="project-card">
             <h3>Password Generator</h3>
-            <p>A simple, easy to use password generator that saves each new password automatically. No online connection or
-              issues with data leaks, and users can even change how secure the password is. 
-            </p>
-            <a href="https://github.com/nickynault/Password-Generator" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <p>A secure, offline password generator with customizable security levels and automatic password saving. 
+              Built with Python, featuring a clean GUI and robust security features. Perfect for users who want 
+              complete control over their password generation without relying on online services.</p>
+            <div className="project-links">
+              <a href="https://github.com/nickynault/Password-Generator" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+          </div>
+          <div className="project-card">
+            <h3>ScanSpend</h3>
+            <p>A receipt scanner and expense categorizer application that helps users track and organize their spending. 
+              Built with Python, this tool uses image processing to extract information from receipts and automatically 
+              categorizes expenses for better financial management.</p>
+            <div className="project-links">
+              <a href="https://github.com/nickynault/ScanSpend" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+              <span className="status-badge">In Development</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="certifications">
-        <h2>Certifications</h2>
+        <h2>Certifications & Training</h2>
         <div className="certification-list">
           <div className="certification-card">
             <h3>Unreal Engine 5 Course</h3>
             <p>Udemy - October 2023</p>
+            <p>Comprehensive training in modern game development with UE5</p>
           </div>
           <div className="certification-card">
             <h3>Python 3, Linux and C++ Courses</h3>
             <p>Codecademy - 2021 through 2023</p>
+            <p>Advanced programming fundamentals and system administration</p>
           </div>
           <div className="certification-card">
             <h3>CISSO: Certified Information Systems Security Officer</h3>
             <p>Mile2 - April 2023</p>
+            <p>Professional cybersecurity certification</p>
           </div>
         </div>
       </section>
 
       <section id="work-experience">
-        <h2>Work Experience</h2>
+        <h2>Professional Experience</h2>
         <div className="experience-list">
           <div className="experience-card">
             <h3>Warehouse Associate at Camfil</h3>
-            <p>Started August 2023, Currently Employed</p>
-            <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure 
-              timely completion of custom orders and deliveries, including will calls, shipments, 
-              and Camfil truck deliveries. My team and I, alongside the salesmen, directly affect how fast orders get out, 
-              which affects our business, and we’re doing very well profit-wise compared to the previous year. 
-              I’ve learned much about managing a team in a commercial setting, inventory management, organization, 
-              and dealing with somewhat stressful situations. </p>
-            <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer">Camfil's Site</a>
+            <p><strong>August 2023 - Present</strong></p>
+            <p>While my current role is in warehouse operations, I've developed valuable skills in team collaboration, 
+              inventory management, and process optimization. I work closely with management to ensure efficient 
+              order fulfillment and have contributed to improved business performance. This experience has taught me 
+              the importance of attention to detail, time management, and working effectively under pressure - 
+              skills that translate well to software development.</p>
+            <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer">Learn about Camfil</a>
+          </div>
+          <div className="experience-card">
+            <h3>Assembly Specialist at Ace Hardware</h3>
+            <p><strong>May 2023 - November 2023</strong></p>
+            <p>Specialized in product assembly and quality control for customer orders. This role enhanced my 
+              problem-solving abilities and attention to detail - crucial skills for debugging and code review. 
+              I learned to work efficiently under deadlines while maintaining high quality standards.</p>
+            <a href="https://www.greatlakesace.com/" target="_blank" rel="noopener noreferrer">Great Lakes Ace Hardware</a>
           </div>
         </div>
       </section>
 
       <footer id="footer">
         <div id="resume">
-          <a href={Resume} className="resume-button" target="_blank" rel="noopener noreferrer" download>Download My Resume</a>
+          <a href={Resume} className="resume-button" target="_blank" rel="noopener noreferrer" download>Download Resume</a>
         </div>
         <div id="social-links" className="social-links">
           <a href="https://github.com/nickynault" target="_blank" rel="noopener noreferrer">
@@ -134,7 +208,7 @@ function App() {
           </a>
         </div>
         <div id="contact">
-          <p className="contact-info">Email: <a href="mailto:nickarsenault18@gmail.com">nickarsenault18@gmail.com</a></p>
+          <p className="contact-info">Email: nickarsenault18@gmail.com</p>
         </div>
       </footer>
     </div>
