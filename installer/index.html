@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator Installer</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-dark: #0a0a0f;
+            --bg-card: #111118;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --border: #27272a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .installer-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .installer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .platform-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .platform-option {
+            flex: 1;
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #0f0f15;
+        }
+
+        .platform-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            background: #151520;
+        }
+
+        .platform-option.selected {
+            border-color: var(--primary);
+            background: #1a1a24;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .platform-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .platform-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .options-group {
+            text-align: left;
+            margin-bottom: 30px;
+            background: #0f0f15;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .option-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .option-item input[type="text"] {
+            flex: 1;
+            padding: 10px 15px;
+            background: #0a0a0f;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .install-btn {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .install-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .back-btn {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--primary);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .success-message {
+            background: #0f0f15;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .installer-container {
+                padding: 30px 20px;
+            }
+            
+            .platform-selector {
+                flex-direction: column;
+            }
+            
+            .platform-option {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="installer-container">
+        <span class="logo">🔒</span>
+        <h1>Password Generator</h1>
+        <p>Secure password generation tool for Windows and Mac</p>
+
+        <div class="platform-selector">
+            <div class="platform-option" onclick="selectPlatform('windows')">
+                <span class="platform-icon">🪟</span>
+                <div class="platform-name">Windows</div>
+                <div class="platform-desc">Windows 10/11</div>
+            </div>
+            <div class="platform-option" onclick="selectPlatform('mac')">
+                <span class="platform-icon">🍎</span>
+                <div class="platform-name">macOS</div>
+                <div class="platform-desc">macOS 10.15+</div>
+            </div>
+        </div>
+
+        <div class="options-group">
+            <div class="option-item">
+                <input type="checkbox" id="createDesktopShortcut" checked>
+                <label for="createDesktopShortcut">Create desktop shortcut</label>
+            </div>
+            <div class="option-item">
+                <input type="checkbox" id="launchAfterInstall" checked>
+                <label for="launchAfterInstall">Launch Password Generator after installation</label>
+            </div>
+            <div class="option-item">
+                <label style="min-width: 120px; font-weight: 600;">Install Location:</label>
+                <input type="text" id="installPath" value="C:\Program Files\PasswordGenerator" readonly>
+            </div>
+        </div>
+
+        <button class="install-btn" onclick="startInstallation()" id="installBtn">
+            Download & Install
+        </button>
+        
+        <button class="back-btn" onclick="window.location.href='/'">
+            ← Back to Portfolio
+        </button>
+
+        <div class="success-message" id="successMessage">
+            <h3 style="margin-bottom: 10px; color: #22c55e;">✓ Download Complete!</h3>
+            <p style="margin-bottom: 15px;">Your Password Generator is ready to use.</p>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                1. Extract the ZIP file to your desired location<br>
+                2. Run PasswordGenerator.exe (Windows) or PasswordGenerator.app (Mac)<br>
+                3. Enjoy secure password generation!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let selectedPlatform = null;
+
+        function selectPlatform(platform) {
+            selectedPlatform = platform;
+            
+            // Update UI
+            document.querySelectorAll('.platform-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            event.currentTarget.classList.add('selected');
+
+            // Update install path based on platform
+            const pathInput = document.getElementById('installPath');
+            if (platform === 'windows') {
+                pathInput.value = 'C:\\Program Files\\PasswordGenerator';
+            } else {
+                pathInput.value = '/Applications/PasswordGenerator';
+            }
+        }
+
+        function startInstallation() {
+            if (!selectedPlatform) {
+                alert('Please select your operating system first.');
+                return;
+            }
+
+            const btn = document.getElementById('installBtn');
+            btn.disabled = true;
+            btn.textContent = 'Downloading...';
+
+            // Simulate download process
+            setTimeout(() => {
+                const fileName = selectedPlatform === 'windows' 
+                    ? 'Windows_Password_Generator.zip'
+                    : 'macOS_Password_Generator.zip';
+                
+                // Trigger download
+                const link = document.createElement('a');
+                link.href = `/${fileName}`;
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Show success message
+                document.getElementById('successMessage').classList.add('show');
+                btn.textContent = 'Download Complete!';
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = 'Download & Install';
+                }, 3000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
