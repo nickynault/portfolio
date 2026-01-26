@@ -319,8 +319,8 @@ function App() {
             <p className="hero-subtitle">Computer Science Graduate & Full Stack Developer</p>
             <p className="hero-tagline">Building games, web apps, and software that people love to use</p>
             <div className="hero-buttons">
-              <a href={Resume} className="btn btn-primary" target="_blank" rel="noopener noreferrer" download>
-                Download Resume
+              <a href={Resume} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                View Resume
               </a>
               <a href="#projects" className="btn btn-secondary">
                 View Projects
