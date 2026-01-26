@@ -649,14 +649,7 @@ function App() {
                    target="_blank" 
                    rel="noopener noreferrer">
                   <span className="download-icon">🔒</span>
-                  Download Windows Version
-                </a>
-                <a href="https://github.com/nickynault/Password-Generator/releases" 
-                   className="btn btn-secondary download-btn" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                  <span className="download-icon">🍎</span>
-                  Download macOS Version
+                  Download Installer
                 </a>
               </div>
               <div className="project-links">
