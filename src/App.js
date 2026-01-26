@@ -45,6 +45,118 @@ try {
   // Image doesn't exist, will hide the image
 }
 
+// Password Generator Installer Modal
+function PasswordGeneratorInstaller({ isOpen, onClose }) {
+  const [selectedPlatform, setSelectedPlatform] = useState(null);
+  const [createShortcut, setCreateShortcut] = useState(true);
+  const [launchAfterInstall, setLaunchAfterInstall] = useState(true);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  if (!isOpen) return null;
+
+  const handleDownload = () => {
+    if (!selectedPlatform) {
+      alert('Please select your operating system first.');
+      return;
+    }
+
+    setIsDownloading(true);
+    
+    // Simulate download process
+    setTimeout(() => {
+      const fileName = selectedPlatform === 'windows' 
+        ? 'Windows_Password_Generator.zip'
+        : 'macOS_Password_Generator.zip';
+      
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = `/${fileName}`;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setIsDownloading(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="installer-modal-overlay">
+      <div className="installer-modal">
+        <div className="installer-header">
+          <span className="installer-logo">🔒</span>
+          <h2>Password Generator Installer</h2>
+          <button className="close-installer" onClick={onClose}>×</button>
+        </div>
+        
+        <p className="installer-subtitle">Secure password generation tool for Windows and Mac</p>
+
+        <div className="platform-selector">
+          <div 
+            className={`platform-option ${selectedPlatform === 'windows' ? 'selected' : ''}`}
+            onClick={() => setSelectedPlatform('windows')}
+          >
+            <span className="platform-icon">🪟</span>
+            <div className="platform-name">Windows</div>
+            <div className="platform-desc">Windows 10/11</div>
+          </div>
+          <div 
+            className={`platform-option ${selectedPlatform === 'mac' ? 'selected' : ''}`}
+            onClick={() => setSelectedPlatform('mac')}
+          >
+            <span className="platform-icon">🍎</span>
+            <div className="platform-name">macOS</div>
+            <div className="platform-desc">macOS 10.15+</div>
+          </div>
+        </div>
+
+        <div className="options-group">
+          <div className="option-item">
+            <input 
+              type="checkbox" 
+              id="createDesktopShortcut" 
+              checked={createShortcut}
+              onChange={(e) => setCreateShortcut(e.target.checked)}
+            />
+            <label htmlFor="createDesktopShortcut">Create desktop shortcut</label>
+          </div>
+          <div className="option-item">
+            <input 
+              type="checkbox" 
+              id="launchAfterInstall" 
+              checked={launchAfterInstall}
+              onChange={(e) => setLaunchAfterInstall(e.target.checked)}
+            />
+            <label htmlFor="launchAfterInstall">Launch Password Generator after installation</label>
+          </div>
+        </div>
+
+        <div className="install-actions">
+          <button 
+            className="install-btn" 
+            onClick={handleDownload}
+            disabled={isDownloading || !selectedPlatform}
+          >
+            {isDownloading ? 'Downloading...' : 'Download & Install'}
+          </button>
+          <button className="cancel-btn" onClick={onClose}>
+            Cancel
+          </button>
+        </div>
+
+        <div className="install-instructions">
+          <h3>Installation Instructions:</h3>
+          <ol>
+            <li>Extract the ZIP file to your desired location</li>
+            <li>Run PasswordGenerator.exe (Windows) or PasswordGenerator.app (Mac)</li>
+            <li>Enjoy secure password generation!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Contact Form Component
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -295,6 +407,7 @@ function App() {
   const [isEnlarged, setIsEnlarged] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [imageError, setImageError] = useState(false)
+  const [isInstallerOpen, setIsInstallerOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -525,14 +638,30 @@ function App() {
             </div>
             <div className="project-card">
               <div className="project-header">
-                <h3>Password Generator</h3>
+                <h3>SecurePass</h3>
                 <span className="project-badge">Python</span>
               </div>
               <p>A simple, easy to use password generator that saves each new password automatically. No online connection or
                 issues with data leaks, and users can even change how secure the password is.</p>
+              <div className="project-downloads">
+                <a href="https://github.com/nickynault/Password-Generator/releases" 
+                   className="btn btn-primary download-btn" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span className="download-icon">🔒</span>
+                  Download Windows Version
+                </a>
+                <a href="https://github.com/nickynault/Password-Generator/releases" 
+                   className="btn btn-secondary download-btn" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span className="download-icon">🍎</span>
+                  Download macOS Version
+                </a>
+              </div>
               <div className="project-links">
                 <a href="https://github.com/nickynault/Password-Generator" target="_blank" rel="noopener noreferrer" className="project-link">
-                  <span>View on GitHub</span>
+                  <span>View Source Code</span>
                   <span className="link-arrow">→</span>
                 </a>
               </div>
@@ -601,6 +730,11 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <PasswordGeneratorInstaller 
+        isOpen={isInstallerOpen} 
+        onClose={() => setIsInstallerOpen(false)} 
+      />
     </div>
   );
 }

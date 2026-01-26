@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator Installer</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --bg-dark: #0a0a0f;
+            --bg-card: #111118;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --border: #27272a;
+            --success: #22c55e;
+            --error: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 100%);
+            color: var(--text-primary);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Custom Title Bar */
+        .title-bar {
+            height: 40px;
+            background: #0a0a0f;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            -webkit-app-region: drag;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .title-controls {
+            display: flex;
+            gap: 10px;
+            -webkit-app-region: no-drag;
+        }
+
+        .title-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .title-button.close {
+            background: #ff5f57;
+        }
+
+        .title-button.minimize {
+            background: #ffbd2e;
+        }
+
+        .title-button.maximize {
+            background: #28c841;
+        }
+
+        .title-button:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .platform-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .platform-option {
+            padding: 20px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: #0f0f15;
+        }
+
+        .platform-option:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            background: #151520;
+        }
+
+        .platform-option.selected {
+            border-color: var(--primary);
+            background: #1a1a24;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .platform-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .platform-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .options-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .option-item:hover {
+            background: #0f0f15;
+        }
+
+        .option-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .option-item input[type="text"] {
+            flex: 1;
+            padding: 8px 12px;
+            background: #0a0a0f;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .install-section {
+            grid-column: 1 / -1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .progress-container {
+            display: none;
+            gap: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #0f0f15;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            color: var(--text-primary);
+            border-color: var(--primary);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status-message {
+            display: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .status-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div class="title-bar">
+        <div class="title">Password Generator Installer</div>
+        <div class="title-controls">
+            <div class="title-button minimize" onclick="window.electronAPI.minimize()"></div>
+            <div class="title-button maximize" onclick="window.electronAPI.maximize()"></div>
+            <div class="title-button close" onclick="window.electronAPI.closeInstaller()"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <span class="logo">🔒</span>
+            <h1>Password Generator</h1>
+            <p class="subtitle">Secure password generation tool for Windows and Mac</p>
+        </div>
+
+        <div class="content">
+            <div class="platform-section">
+                <div class="section-title">Select Platform</div>
+                <div class="platform-grid">
+                    <div class="platform-option" onclick="selectPlatform('windows')">
+                        <span class="platform-icon">🪟</span>
+                        <div class="platform-name">Windows</div>
+                        <div class="platform-desc">Windows 10/11</div>
+                    </div>
+                    <div class="platform-option" onclick="selectPlatform('mac')">
+                        <span class="platform-icon">🍎</span>
+                        <div class="platform-name">macOS</div>
+                        <div class="platform-desc">macOS 10.15+</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <div class="section-title">Installation Options</div>
+                <div class="option-item">
+                    <input type="checkbox" id="createShortcut" checked>
+                    <label for="createShortcut">Create desktop shortcut</label>
+                </div>
+                <div class="option-item">
+                    <input type="checkbox" id="launchAfterInstall" checked>
+                    <label for="launchAfterInstall">Launch Password Generator after installation</label>
+                </div>
+                <div class="option-item">
+                    <label style="min-width: 120px; font-weight: 600;">Install Location:</label>
+                    <input type="text" id="installPath" readonly>
+                </div>
+            </div>
+
+            <div class="install-section">
+                <div class="section-title">Installation Progress</div>
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Preparing installation...</div>
+                </div>
+                <div class="status-message" id="statusMessage"></div>
+                <div class="actions">
+                    <button class="btn btn-secondary" onclick="window.electronAPI.closeInstaller()">Cancel</button>
+                    <button class="btn btn-primary" id="installBtn" onclick="startInstallation()">
+                        <span>Download & Install</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedPlatform = null;
+
+        function selectPlatform(platform) {
+            selectedPlatform = platform;
+            
+            // Update UI
+            document.querySelectorAll('.platform-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            event.currentTarget.classList.add('selected');
+
+            // Update install path based on platform
+            const pathInput = document.getElementById('installPath');
+            if (platform === 'windows') {
+                pathInput.value = 'C:\\Program Files\\PasswordGenerator';
+            } else {
+                pathInput.value = '/Applications/PasswordGenerator';
+            }
+        }
+
+        function startInstallation() {
+            if (!selectedPlatform) {
+                showStatus('Please select your operating system first.', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('installBtn');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressText = document.getElementById('progressText');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span>Installing...</span>';
+            progressContainer.style.display = 'flex';
+            showStatus('Starting installation...', 'success');
+
+            const options = {
+                installPath: document.getElementById('installPath').value,
+                createShortcut: document.getElementById('createShortcut').checked,
+                launchAfterInstall: document.getElementById('launchAfterInstall').checked
+            };
+
+            window.electronAPI.installApp({ platform: selectedPlatform, options })
+                .then(result => {
+                    if (result.success) {
+                        progressFill.style.width = '100%';
+                        progressText.textContent = 'Installation Complete!';
+                        showStatus(`Password Generator has been installed to: ${result.installPath}`, 'success');
+                        btn.innerHTML = '<span>Close Installer</span>';
+                        btn.onclick = () => window.electronAPI.closeInstaller();
+                    } else {
+                        showStatus(`Installation failed: ${result.error}`, 'error');
+                        btn.disabled = false;
+                        btn.innerHTML = '<span>Try Again</span>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Installation error:', error);
+                    showStatus(`Installation error: ${error.message}`, 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = '<span>Try Again</span>';
+                });
+        }
+
+        function showStatus(message, type) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message status-${type}`;
+            statusMessage.style.display = 'block';
+        }
+
+        // Initialize default path
+        document.getElementById('installPath').value = 'C:\\Program Files\\PasswordGenerator';
+    </script>
+</body>
+</html>
