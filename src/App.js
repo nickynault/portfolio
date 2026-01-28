@@ -22,27 +22,13 @@ const techStack = [
   { name: 'Godot', icon: '🚀', category: 'Game Dev' }
 ];
 
-const skills = [
-  { name: 'JavaScript/React', level: 85, category: 'Frontend' },
-  { name: 'Python', level: 80, category: 'Backend' },
-  { name: 'Game Development', level: 75, category: 'Game Dev' },
-  { name: 'Cybersecurity', level: 70, category: 'Security' },
-  { name: 'Problem Solving', level: 90, category: 'Soft Skills' },
-  { name: 'Team Collaboration', level: 85, category: 'Soft Skills' }
-];
 
 // Try to import images, but handle if they don't exist
 let Me = null;
-let GameMenu = null;
 try {
   Me = require('./photos/me-small.jpg');
 } catch (e) {
   // Image doesn't exist, will use placeholder
-}
-try {
-  GameMenu = require('./photos/crypt.png');
-} catch (e) {
-  // Image doesn't exist, will hide the image
 }
 
 // Password Generator Installer Modal
@@ -404,7 +390,6 @@ function ContactForm() {
 }
 
 function App() {
-  const [isEnlarged, setIsEnlarged] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [imageError, setImageError] = useState(false)
   const [isInstallerOpen, setIsInstallerOpen] = useState(false)
@@ -427,10 +412,6 @@ function App() {
     handleScroll(); // Initial call to set progress on load
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleSize = () => {
-    setIsEnlarged(!isEnlarged);
-  }
 
   return (
     <div className="App">
