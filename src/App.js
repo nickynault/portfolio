@@ -435,8 +435,11 @@ function App() {
               <a href={Resume} className="btn btn-primary" target="_blank" rel="noopener noreferrer">
                 View Resume
               </a>
-              <a href="#projects" className="btn btn-secondary">
+              <a href="#projects" className="btn btn-primary">
                 View Projects
+              </a>
+              <a href="#contact" className="btn btn-primary">
+                Get in Touch
               </a>
             </div>
             <div className="hero-social">
@@ -619,27 +622,39 @@ function App() {
           <div className="project-grid">
             <div className="project-card">
               <div className="project-header">
-                <h3>Project Crypt</h3>
-                <span className="project-badge">Game Dev</span>
-              </div>
-              <p>A collaborative project with Jester Studios, Project Crypt is an early stage game using Godot 4. It will have
-                a roguelike AND a wave based survival mode. It will first be available on PC. 
-                This is currently a work in progress as of 10/17/2024.</p>
-              {GameMenu && (
-                <div className="project-image-wrapper">
-                  <img src={GameMenu} alt="Project Crypt main menu" 
-                       className={isEnlarged ? "project-image enlarged" : "project-image"} 
-                       onClick={toggleSize} />
-                  {isEnlarged && (
-                    <button className="close-image" onClick={toggleSize}>×</button>
-                  )}
+                <h3>RE:PLAY</h3>
+                <div className="project-badges">
+                  <span className="project-badge">Python</span>
+                  <span className="project-badge">GameDev</span>
                 </div>
-              )}
+              </div>
+              <p>RE:PLAY is a Windows arcade collection that recreates classic game ideas in a single, easy-to-run executable. 
+                It focuses on simple mechanics, clean structure, and low-friction distribution, letting players jump straight 
+                into games without installs or setup. The project highlights practical game development, iteration, and 
+                shipping a complete, playable product. It uses Python, mainly.</p>
+              <div className="project-downloads">
+                <a href="/portfolio/downloads/RE-PLAY_v0.1.0.exe" 
+                   className="btn btn-purple download-btn" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span className="download-icon">⬇️</span>
+                  Download Game (EXE)
+                </a>
+              </div>
+              <div className="project-links">
+                <a href="https://github.com/nickynault/RE-PLAY" target="_blank" rel="noopener noreferrer" className="project-link">
+                  <span>View Source Code</span>
+                  <span className="link-arrow">→</span>
+                </a>
+              </div>
             </div>
             <div className="project-card">
               <div className="project-header">
                 <h3>SecurePass</h3>
-                <span className="project-badge">Python</span>
+                <div className="project-badges">
+                  <span className="project-badge">Python</span>
+                  <span className="project-badge">Software</span>
+                </div>
               </div>
               <p>A simple, easy to use password generator that saves each new password automatically. No online connection or
                 issues with data leaks, and users can even change how secure the password is.</p>
