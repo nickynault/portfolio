@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.b82fa2ad.css",
-    "main.js": "/portfolio/static/js/main.616f21ef.js",
+    "main.css": "/portfolio/static/css/main.9ac2cd9e.css",
+    "main.js": "/portfolio/static/js/main.2a8e756c.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/Nicholas_Arsenault_Resume.pdf": "/portfolio/static/media/Nicholas_Arsenault_Resume.a6628c3d8c5573241d4c.pdf",
     "static/media/LinkedinLogo.png": "/portfolio/static/media/LinkedinLogo.68ac41e1459436bfd38f.png",
     "index.html": "/portfolio/index.html",
-    "main.b82fa2ad.css.map": "/portfolio/static/css/main.b82fa2ad.css.map",
-    "main.616f21ef.js.map": "/portfolio/static/js/main.616f21ef.js.map",
+    "main.9ac2cd9e.css.map": "/portfolio/static/css/main.9ac2cd9e.css.map",
+    "main.2a8e756c.js.map": "/portfolio/static/js/main.2a8e756c.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b82fa2ad.css",
-    "static/js/main.616f21ef.js"
+    "static/css/main.9ac2cd9e.css",
+    "static/js/main.2a8e756c.js"
   ]
 }
