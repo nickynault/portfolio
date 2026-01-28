@@ -159,21 +159,51 @@ body {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: inline-block;
   border: 2px solid transparent;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 .btn-primary {
   background: var(--gradient-1);
   color: white;
   box-shadow: var(--shadow-md);
+  border: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: var(--shadow-lg);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  filter: brightness(0.95);
 }
 
 .btn-secondary {
@@ -186,6 +216,12 @@ body {
   background: var(--bg-card);
   border-color: var(--primary);
   color: var(--primary-light);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px) scale(0.98);
+  background: var(--bg-darker);
 }
 
 .hero-social {
@@ -434,11 +470,34 @@ body {
   color: var(--primary-light);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.education-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(99, 102, 241, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 .education-link:hover {
   color: var(--primary);
+  transform: translateX(2px);
+}
+
+.education-link:hover::before {
+  opacity: 1;
+}
+
+.education-link:active {
+  transform: translateX(0) scale(0.98);
 }
 
 /* ============================================
@@ -600,20 +659,43 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(99, 102, 241, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 6px;
+  pointer-events: none;
 }
 
 .project-link:hover {
   color: var(--primary);
   gap: 12px;
+  transform: translateX(2px);
+}
+
+.project-link:hover::before {
+  opacity: 1;
+}
+
+.project-link:active {
+  transform: translateX(0) scale(0.98);
 }
 
 .link-arrow {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .project-link:hover .link-arrow {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 /* Download Buttons */
@@ -1065,15 +1147,38 @@ body {
   color: var(--primary-light);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.experience-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(99, 102, 241, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 .experience-link:hover {
   color: var(--primary);
   gap: 12px;
+  transform: translateX(2px);
+}
+
+.experience-link:hover::before {
+  opacity: 1;
+}
+
+.experience-link:active {
+  transform: translateX(0) scale(0.98);
 }
 
 /* ============================================
@@ -1565,11 +1670,34 @@ body {
   color: var(--primary-light);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.footer-email::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(99, 102, 241, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 .footer-email:hover {
   color: var(--primary);
+  transform: translateX(2px);
+}
+
+.footer-email:hover::before {
+  opacity: 1;
+}
+
+.footer-email:active {
+  transform: translateX(0) scale(0.98);
 }
 
 .footer-social {
@@ -1692,4 +1820,335 @@ html {
 ::selection {
   background: var(--primary);
   color: white;
+}
+
+/* ============================================
+   SUBTLE EDGE GLOW EFFECT
+   ============================================ */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  animation: edgeGlow 15s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes edgeGlow {
+  0%, 100% {
+    opacity: 0.2;
+    background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+  }
+  50% {
+    opacity: 0.4;
+    background-position: 10% 10%, 90% 10%, 10% 90%, 90% 90%;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+    opacity: 0.1;
+  }
+}
+
+/* ============================================
+   SCROLL PROGRESS INDICATOR
+   ============================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  z-index: 10000;
+  transform-origin: left;
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    transition: none;
+  }
+}
+
+/* ============================================
+   SUBTLE NOISE/GRAIN OVERLAY
+   ============================================ */
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background-image: 
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 100px 100px, 120px 120px;
+  background-position: 0 0, 25px 25px;
+  background-color: transparent;
+  opacity: 0.02;
+  animation: noiseDrift 60s linear infinite;
+}
+
+/* CSS noise approximation using gradients */
+body::after {
+  background-image: 
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 80px 80px, 100px 100px, 140px 140px, 180px 180px;
+  background-position: 0 0, 40px 40px, 20px 20px, 60px 60px;
+}
+
+@keyframes noiseDrift {
+  0% {
+    transform: translate(0, 0);
+    background-position: 0 0, 40px 40px, 20px 20px, 60px 60px;
+  }
+  100% {
+    transform: translate(2px, 2px);
+    background-position: 2px 2px, 42px 42px, 22px 22px, 62px 62px;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+    opacity: 0.01;
+  }
+}
+
+/* ============================================
+   SUBTLE ANIMATED DIVIDER LINES
+   ============================================ */
+
+/* Divider after hero section */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(99, 102, 241, 0.3) 20%, 
+    rgba(236, 72, 153, 0.3) 40%, 
+    rgba(6, 182, 212, 0.3) 60%, 
+    rgba(139, 92, 246, 0.3) 80%, 
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: dividerGlow 25s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Divider after about section */
+#about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(99, 102, 241, 0.2) 25%, 
+    rgba(236, 72, 153, 0.2) 50%, 
+    rgba(6, 182, 212, 0.2) 75%, 
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  background-position: 0% 0;
+  animation: dividerFlow 30s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* Divider after education section */
+.education-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(139, 92, 246, 0.25) 30%, 
+    rgba(99, 102, 241, 0.25) 60%, 
+    rgba(236, 72, 153, 0.25) 90%, 
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  animation: dividerGlow 20s ease-in-out infinite reverse;
+  opacity: 0.5;
+}
+
+/* Divider after projects section */
+#projects::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(6, 182, 212, 0.3) 20%, 
+    rgba(99, 102, 241, 0.3) 40%, 
+    rgba(236, 72, 153, 0.3) 60%, 
+    rgba(139, 92, 246, 0.3) 80%, 
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  animation: dividerFlow 25s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Divider after certifications section */
+#certifications::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(236, 72, 153, 0.2) 25%, 
+    rgba(139, 92, 246, 0.2) 50%, 
+    rgba(6, 182, 212, 0.2) 75%, 
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  animation: dividerGlow 30s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* Divider after work experience section */
+#work-experience::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(99, 102, 241, 0.25) 30%, 
+    rgba(236, 72, 153, 0.25) 60%, 
+    rgba(139, 92, 246, 0.25) 90%, 
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  background-position: 0% 0;
+  animation: dividerFlow 20s ease-in-out infinite reverse;
+  opacity: 0.5;
+}
+
+/* Divider after tech stack section */
+#tech-stack::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(6, 182, 212, 0.2) 25%, 
+    rgba(99, 102, 241, 0.2) 50%, 
+    rgba(236, 72, 153, 0.2) 75%, 
+    transparent 100%
+  );
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  animation: dividerGlow 25s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+/* Divider after skills section */
+#skills::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(139, 92, 246, 0.3) 20%, 
+    rgba(6, 182, 212, 0.3) 40%, 
+    rgba(99, 102, 241, 0.3) 60%, 
+    rgba(236, 72, 153, 0.3) 80%, 
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  animation: dividerFlow 30s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Divider animations */
+@keyframes dividerGlow {
+  0%, 100% {
+    background-position: 100% 0;
+    opacity: 0.4;
+  }
+  50% {
+    background-position: 0% 0;
+    opacity: 0.8;
+  }
+}
+
+@keyframes dividerFlow {
+  0%, 100% {
+    background-position: 0% 0;
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 100% 0;
+    opacity: 0.7;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::after,
+  #about::after,
+  .education-section::after,
+  #projects::after,
+  #certifications::after,
+  #work-experience::after,
+  #tech-stack::after,
+  #skills::after {
+    animation: none;
+    opacity: 0.2;
+  }
 }

@@ -412,8 +412,19 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Scroll progress functionality
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      
+      const scrollProgress = document.querySelector('.scroll-progress');
+      if (scrollProgress) {
+        scrollProgress.style.transform = `scaleX(${scrollPercent / 100})`;
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call to set progress on load
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
