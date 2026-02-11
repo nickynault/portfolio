@@ -625,9 +625,9 @@ function App() {
                 into games without installs or setup. The project highlights practical game development, iteration, and 
                 shipping a complete, playable product. It uses Python, mainly.</p>
               <div className="project-downloads">
-                <a href="/portfolio/downloads/RE-PLAY_v0.1.0.exe" 
-                   className="btn btn-purple download-btn" 
-                   target="_blank" 
+                <a href="/portfolio/downloads/RE-PLAY_v0.1.1.exe"
+                   className="btn btn-purple download-btn"
+                   target="_blank"
                    rel="noopener noreferrer">
                   <span className="download-icon">⬇️</span>
                   Download Game (EXE)
