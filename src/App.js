@@ -704,6 +704,22 @@ function App() {
           </h2>
           <div className="experience-list">
             <div className="experience-card">
+                <div className="experience-header">
+                  <h3>Warehouse Associate</h3>
+                  <span className="experience-company">Camfil</span>
+                </div>
+                <p className="experience-duration">Started August 2023, Currently Employed</p>
+                <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure 
+                  timely completion of custom orders and deliveries, including will calls, shipments, 
+                  and Camfil truck deliveries. My team and I, alongside the salesmen, directly affect how fast orders get out, 
+                  which affects our business, and we're doing very well profit-wise compared to the previous year. 
+                  I've learned much about managing a team in a commercial setting, inventory management, organization, 
+                  and dealing with somewhat stressful situations.</p>
+                <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer" className="experience-link">
+                  Camfil's Site →
+                </a>
+              </div>
+            <div className="experience-card">
               <div className="experience-header">
                 <h3>Warehouse Associate</h3>
                 <span className="experience-company">Camfil</span>
