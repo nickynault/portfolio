@@ -705,18 +705,22 @@ function App() {
           <div className="experience-list">
             <div className="experience-card">
                 <div className="experience-header">
-                  <h3>Warehouse Associate</h3>
-                  <span className="experience-company">Camfil</span>
+                  <h3>Field Operations Engineer</h3>
+                  <span className="experience-company">Seegrid</span>
                 </div>
-                <p className="experience-duration">Started August 2023, Currently Employed</p>
-                <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure 
-                  timely completion of custom orders and deliveries, including will calls, shipments, 
-                  and Camfil truck deliveries. My team and I, alongside the salesmen, directly affect how fast orders get out, 
-                  which affects our business, and we're doing very well profit-wise compared to the previous year. 
-                  I've learned much about managing a team in a commercial setting, inventory management, organization, 
-                  and dealing with somewhat stressful situations.</p>
-                <a href="https://www.camfil.com/en-us/" target="_blank" rel="noopener noreferrer" className="experience-link">
-                  Camfil's Site →
+                <p className="experience-duration">Started May 2026, Currently Employed</p>
+                <p> As a Field Operations Engineer, I operate, maintain, and troubleshoot autonomous
+                  mobile robots across a variety of production environments. I work across electrical,
+                  mechanical, and software systems to diagnose issues, train autonomous tow and fork
+                  trucks, perform CAD mapping and route planning, and return vehicles to service.
+                  My work involves reading electrical schematics and parts manuals, performing
+                  preventive maintenance and validations, and using tools such as SSH, Linux, PuTTY,
+                  FlexiSoft, Safety Designer, Jira, Salesforce, and Fleet Central for advanced
+                  diagnostics and configuration. I also work directly with project managers,
+                  engineers, supervisors, line workers, and contractors to provide technical support,
+                  training, and issue resolution across multiple customer sites.</p>
+                <a href="https://www.seegrid.com/" target="_blank" rel="noopener noreferrer" className="experience-link">
+                  Seegrid's Site →
                 </a>
               </div>
             <div className="experience-card">
@@ -724,7 +728,7 @@ function App() {
                 <h3>Warehouse Associate</h3>
                 <span className="experience-company">Camfil</span>
               </div>
-              <p className="experience-duration">Started August 2023, Currently Employed</p>
+              <p className="experience-duration">Started August 2023, Ended May 2026</p>
               <p>As a warehouse associate, I collaborate closely with the warehouse manager to ensure 
                 timely completion of custom orders and deliveries, including will calls, shipments, 
                 and Camfil truck deliveries. My team and I, alongside the salesmen, directly affect how fast orders get out, 
